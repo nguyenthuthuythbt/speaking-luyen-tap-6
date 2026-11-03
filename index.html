@@ -19,7 +19,6 @@ a.card:focus-visible{outline:4px solid var(--amber);outline-offset:3px}
 .num{font-family:Fredoka,sans-serif;font-weight:700;font-size:2.4rem;line-height:1;color:var(--amber)}
 .em{font-size:1.8rem}
 .t{font-weight:900;font-size:clamp(.95rem,2.4vw,1.15rem);line-height:1.25}
-.new{font-size:.75rem;font-weight:900;color:#1e1b4b;background:var(--amber);border-radius:999px;padding:2px 10px}
 .hint{margin:26px auto 0;max-width:640px;color:var(--mute);font-weight:700;font-size:1.05rem;line-height:1.5}
 footer{margin-top:28px;color:var(--mute);font-family:Fredoka,sans-serif}
 footer b{color:var(--amber)}
@@ -46,7 +45,7 @@ footer b{color:var(--amber)}
     var grid = document.createElement('div'); grid.className = 'grid';
     g[1].forEach(function(c){
       var a = document.createElement('a'); a.className = 'card'; a.href = 'g6-lt-card' + c[0] + '/index.html';
-      a.innerHTML = '<span class="num">' + c[0] + '</span><span class="em">' + c[1] + '</span><span class="t">' + c[2] + '</span>' + (c[3] ? '<span class="new">Thẻ mới</span>' : '');
+      a.innerHTML = '<span class="num">' + c[0] + '</span><span class="em">' + c[1] + '</span><span class="t">' + c[2] + '</span>';
       grid.appendChild(a);
     });
     root.appendChild(grid);
