@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Speaking Quest – Luyện nói 12 thẻ</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Nunito:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{--panel:rgba(30,41,59,.92);--amber:#fbbf24;--ink:#f8fafc;--mute:#aab6ca}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Nunito,sans-serif;color:var(--ink);background:linear-gradient(135deg,#0f172a,#1e1b4b,#0f172a);padding:28px 16px 40px;text-align:center}
+h1{font-family:Fredoka,sans-serif;font-size:clamp(1.8rem,5vw,2.8rem);margin:0 0 6px;background:linear-gradient(90deg,#fcd34d,#fdba74,#fef08a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--mute);font-weight:900;font-size:clamp(1rem,2.6vw,1.25rem);margin:0 0 18px}
+h2{font-family:Fredoka,sans-serif;color:var(--amber);font-size:1.3rem;margin:26px auto 12px;max-width:900px;text-align:left}
+.grid{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,2vw,18px)}
+a.card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-height:150px;padding:14px 10px;border-radius:22px;text-decoration:none;color:var(--ink);background:var(--panel);border:3px solid rgba(251,191,36,.45);box-shadow:0 8px 22px rgba(0,0,0,.4);transition:transform .2s,border-color .2s}
+a.card:hover{transform:translateY(-6px);border-color:var(--amber)}
+a.card:focus-visible{outline:4px solid var(--amber);outline-offset:3px}
+.num{font-family:Fredoka,sans-serif;font-weight:700;font-size:2.4rem;line-height:1;color:var(--amber)}
+.em{font-size:1.8rem}
+.t{font-weight:900;font-size:clamp(.95rem,2.4vw,1.15rem);line-height:1.25}
+.new{font-size:.75rem;font-weight:900;color:#1e1b4b;background:var(--amber);border-radius:999px;padding:2px 10px}
+.hint{margin:26px auto 0;max-width:640px;color:var(--mute);font-weight:700;font-size:1.05rem;line-height:1.5}
+footer{margin-top:28px;color:var(--mute);font-family:Fredoka,sans-serif}
+footer b{color:var(--amber)}
+@media (max-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<h1>🎤 Speaking Quest · Luyện nói</h1>
+<p class="sub">English 6 · Chọn một thẻ, nói xong em sẽ biết điểm ngay</p>
+<div id="groups"></div>
+<p class="hint">Em có thể luyện nhiều lần. Đọc phần <b>Cần cải thiện</b> rồi bấm Try again để điểm cao hơn nhé! 💪</p>
+<footer id="foot"></footer>
+<script>
+(function(){
+  var AUTHOR = 'Teacher Thuy';
+  var G = [
+    ['🏫 Trường học', [[1,'🏫','My School'],[2,'📚','My Favourite Subject'],[3,'⏰','Break Time at School'],[10,'👩‍🏫','A Teacher I Like',1]]],
+    ['🏠 Nhà ở', [[4,'🏠','My Home'],[5,'🛋️','My Favourite Room'],[6,'🏡','My Dream House'],[11,'🏘️','My Neighbourhood',1]]],
+    ['🧑‍🤝‍🧑 Bạn bè', [[7,'🧑‍🤝‍🧑','My Best Friend'],[8,'🎒','A Classmate I Like'],[9,'⚽','A Friend I Like Playing With'],[12,'🤝','A Friend Who Helps Me',1]]]
+  ];
+  var root = document.getElementById('groups');
+  G.forEach(function(g){
+    var h = document.createElement('h2'); h.textContent = g[0]; root.appendChild(h);
+    var grid = document.createElement('div'); grid.className = 'grid';
+    g[1].forEach(function(c){
+      var a = document.createElement('a'); a.className = 'card'; a.href = 'g6-lt-card' + c[0] + '/index.html';
+      a.innerHTML = '<span class="num">' + c[0] + '</span><span class="em">' + c[1] + '</span><span class="t">' + c[2] + '</span>' + (c[3] ? '<span class="new">Thẻ mới</span>' : '');
+      grid.appendChild(a);
+    });
+    root.appendChild(grid);
+  });
+  if (AUTHOR && AUTHOR.indexOf('__AUTHOR__') < 0) document.getElementById('foot').innerHTML = '© ' + new Date().getFullYear() + ' <b>' + AUTHOR.replace(/[<>&]/g, '') + '</b> · Speaking Quest';
+})();
+</script>
+</body>
+</html>
